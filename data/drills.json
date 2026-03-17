@@ -1,0 +1,812 @@
+[
+  {
+    "id": "warmup_001",
+    "name": "Dynamic Stretch Circle",
+    "category": "warm_up",
+    "minPlayers": 6,
+    "maxPlayers": 99,
+    "durationMinutes": 8,
+    "description": "Players form a large circle with the leader in the centre. The leader calls out dynamic stretching movements — arm circles, leg swings, hip rotations — while players mirror each movement. Rotate the leader every 60 seconds.",
+    "diagram": {
+      "fieldType": "oval_half",
+      "players": [
+        { "id": "p1", "x": 0.50, "y": 0.50, "role": "leader",  "label": "L" },
+        { "id": "p2", "x": 0.50, "y": 0.22, "role": "player",  "label": "1" },
+        { "id": "p3", "x": 0.73, "y": 0.35, "role": "player",  "label": "2" },
+        { "id": "p4", "x": 0.73, "y": 0.65, "role": "player",  "label": "3" },
+        { "id": "p5", "x": 0.50, "y": 0.78, "role": "player",  "label": "4" },
+        { "id": "p6", "x": 0.27, "y": 0.65, "role": "player",  "label": "5" },
+        { "id": "p7", "x": 0.27, "y": 0.35, "role": "player",  "label": "6" }
+      ],
+      "arrows": [],
+      "zones": []
+    }
+  },
+  {
+    "id": "warmup_002",
+    "name": "Handball Warm-Up Circle",
+    "category": "warm_up",
+    "minPlayers": 8,
+    "maxPlayers": 99,
+    "durationMinutes": 10,
+    "description": "8+ players form a circle. On the coach's signal, players handball clockwise around the circle as quickly as possible. Reverse direction every 30 seconds. Focus on clean technique and soft hands.",
+    "diagram": {
+      "fieldType": "oval_half",
+      "players": [
+        { "id": "p1", "x": 0.50, "y": 0.20, "role": "player", "label": "1" },
+        { "id": "p2", "x": 0.72, "y": 0.32, "role": "player", "label": "2" },
+        { "id": "p3", "x": 0.78, "y": 0.58, "role": "player", "label": "3" },
+        { "id": "p4", "x": 0.63, "y": 0.80, "role": "player", "label": "4" },
+        { "id": "p5", "x": 0.37, "y": 0.80, "role": "player", "label": "5" },
+        { "id": "p6", "x": 0.22, "y": 0.58, "role": "player", "label": "6" },
+        { "id": "p7", "x": 0.28, "y": 0.32, "role": "player", "label": "7" },
+        { "id": "p8", "x": 0.50, "y": 0.50, "role": "leader", "label": "C" }
+      ],
+      "arrows": [
+        { "from": "p1", "to": "p2", "type": "handball" },
+        { "from": "p2", "to": "p3", "type": "handball" },
+        { "from": "p3", "to": "p4", "type": "handball" },
+        { "from": "p4", "to": "p5", "type": "handball" },
+        { "from": "p5", "to": "p6", "type": "handball" },
+        { "from": "p6", "to": "p7", "type": "handball" },
+        { "from": "p7", "to": "p1", "type": "handball" }
+      ],
+      "zones": []
+    }
+  },
+  {
+    "id": "warmup_003",
+    "name": "Kick-to-Kick Pairs",
+    "category": "warm_up",
+    "minPlayers": 2,
+    "maxPlayers": 99,
+    "durationMinutes": 10,
+    "description": "Players pair up and kick to each other, starting at 15m and gradually increasing distance to 40m. Focus on a smooth run-up and balanced follow-through. Change pace and kick style every 2 minutes.",
+    "diagram": {
+      "fieldType": "open",
+      "players": [
+        { "id": "p1", "x": 0.18, "y": 0.25, "role": "player", "label": "1" },
+        { "id": "p2", "x": 0.18, "y": 0.75, "role": "player", "label": "2" },
+        { "id": "p3", "x": 0.50, "y": 0.25, "role": "player", "label": "1" },
+        { "id": "p4", "x": 0.50, "y": 0.75, "role": "player", "label": "2" },
+        { "id": "p5", "x": 0.82, "y": 0.25, "role": "player", "label": "1" },
+        { "id": "p6", "x": 0.82, "y": 0.75, "role": "player", "label": "2" }
+      ],
+      "arrows": [
+        { "from": "p1", "to": "p2", "type": "kick" },
+        { "from": "p3", "to": "p4", "type": "kick" },
+        { "from": "p5", "to": "p6", "type": "kick" }
+      ],
+      "zones": []
+    }
+  },
+  {
+    "id": "warmup_004",
+    "name": "Mark and Handball Relay",
+    "category": "warm_up",
+    "minPlayers": 8,
+    "maxPlayers": 30,
+    "durationMinutes": 12,
+    "description": "Two teams line up in parallel corridors. The first player kicks to their partner opposite, who marks and handballs down the line. The relay continues until all players have touched the ball. First team to finish wins.",
+    "diagram": {
+      "fieldType": "corridor",
+      "players": [
+        { "id": "a1", "x": 0.28, "y": 0.12, "role": "attacker",  "label": "A" },
+        { "id": "a2", "x": 0.28, "y": 0.37, "role": "attacker",  "label": "A" },
+        { "id": "a3", "x": 0.28, "y": 0.62, "role": "attacker",  "label": "A" },
+        { "id": "a4", "x": 0.28, "y": 0.87, "role": "attacker",  "label": "A" },
+        { "id": "b1", "x": 0.72, "y": 0.12, "role": "defender",  "label": "B" },
+        { "id": "b2", "x": 0.72, "y": 0.37, "role": "defender",  "label": "B" },
+        { "id": "b3", "x": 0.72, "y": 0.62, "role": "defender",  "label": "B" },
+        { "id": "b4", "x": 0.72, "y": 0.87, "role": "defender",  "label": "B" }
+      ],
+      "arrows": [
+        { "from": "a1", "to": "b1", "type": "kick" },
+        { "from": "b1", "to": "b2", "type": "handball" },
+        { "from": "a2", "to": "b2", "type": "kick" }
+      ],
+      "zones": []
+    }
+  },
+  {
+    "id": "warmup_005",
+    "name": "Jogging Laps with Ball Work",
+    "category": "warm_up",
+    "minPlayers": 10,
+    "maxPlayers": 99,
+    "durationMinutes": 15,
+    "description": "Players jog laps of the oval in small groups, handballing the ball around the group while moving. On the coach's whistle, perform a skill challenge — e.g. toe poke or behind-the-back handball. Complete 3–4 laps.",
+    "diagram": {
+      "fieldType": "oval_half",
+      "players": [
+        { "id": "p1", "x": 0.50, "y": 0.12, "role": "leader", "label": "L" },
+        { "id": "p2", "x": 0.78, "y": 0.30, "role": "player", "label": "1" },
+        { "id": "p3", "x": 0.82, "y": 0.62, "role": "player", "label": "2" },
+        { "id": "p4", "x": 0.55, "y": 0.85, "role": "player", "label": "3" },
+        { "id": "p5", "x": 0.22, "y": 0.72, "role": "player", "label": "4" },
+        { "id": "p6", "x": 0.18, "y": 0.38, "role": "player", "label": "5" }
+      ],
+      "arrows": [
+        { "from": "p1", "to": "p2", "type": "run" },
+        { "from": "p2", "to": "p3", "type": "run" },
+        { "from": "p3", "to": "p4", "type": "run" },
+        { "from": "p4", "to": "p5", "type": "run" },
+        { "from": "p5", "to": "p6", "type": "run" },
+        { "from": "p6", "to": "p1", "type": "run" }
+      ],
+      "zones": []
+    }
+  },
+  {
+    "id": "warmup_006",
+    "name": "Tag Game (Tiggy)",
+    "category": "warm_up",
+    "minPlayers": 8,
+    "maxPlayers": 99,
+    "durationMinutes": 10,
+    "description": "Two taggers chase and tag other players within a marked box. Tagged players become taggers. The last two players untagged win. Play multiple short rounds of 60–90 seconds.",
+    "diagram": {
+      "fieldType": "box",
+      "players": [
+        { "id": "t1", "x": 0.50, "y": 0.45, "role": "leader",  "label": "T" },
+        { "id": "t2", "x": 0.55, "y": 0.62, "role": "leader",  "label": "T" },
+        { "id": "p1", "x": 0.18, "y": 0.20, "role": "player",  "label": "1" },
+        { "id": "p2", "x": 0.45, "y": 0.15, "role": "player",  "label": "2" },
+        { "id": "p3", "x": 0.78, "y": 0.22, "role": "player",  "label": "3" },
+        { "id": "p4", "x": 0.85, "y": 0.52, "role": "player",  "label": "4" },
+        { "id": "p5", "x": 0.75, "y": 0.82, "role": "player",  "label": "5" },
+        { "id": "p6", "x": 0.38, "y": 0.85, "role": "player",  "label": "6" },
+        { "id": "p7", "x": 0.15, "y": 0.72, "role": "player",  "label": "7" },
+        { "id": "p8", "x": 0.12, "y": 0.45, "role": "player",  "label": "8" }
+      ],
+      "arrows": [],
+      "zones": []
+    }
+  },
+  {
+    "id": "skills_001",
+    "name": "Handball Relay",
+    "category": "basic_skills",
+    "minPlayers": 6,
+    "maxPlayers": 24,
+    "durationMinutes": 15,
+    "description": "Players split into two teams in parallel lines. The first player runs forward and handballs to a cone marker, picks up the return and handballs back to the next player in line. Focus on punching through the ball cleanly.",
+    "diagram": {
+      "fieldType": "corridor",
+      "players": [
+        { "id": "a1", "x": 0.32, "y": 0.10, "role": "attacker", "label": "1" },
+        { "id": "a2", "x": 0.32, "y": 0.28, "role": "attacker", "label": "2" },
+        { "id": "a3", "x": 0.32, "y": 0.46, "role": "attacker", "label": "3" },
+        { "id": "a4", "x": 0.32, "y": 0.64, "role": "attacker", "label": "4" },
+        { "id": "b1", "x": 0.68, "y": 0.10, "role": "defender", "label": "1" },
+        { "id": "b2", "x": 0.68, "y": 0.28, "role": "defender", "label": "2" },
+        { "id": "b3", "x": 0.68, "y": 0.46, "role": "defender", "label": "3" },
+        { "id": "b4", "x": 0.68, "y": 0.64, "role": "defender", "label": "4" }
+      ],
+      "arrows": [
+        { "from": "a1", "to": "a4", "type": "run" },
+        { "from": "a4", "to": "a3", "type": "handball" },
+        { "from": "b1", "to": "b4", "type": "run" },
+        { "from": "b4", "to": "b3", "type": "handball" }
+      ],
+      "zones": []
+    }
+  },
+  {
+    "id": "skills_002",
+    "name": "Stationary Mark Practice",
+    "category": "basic_skills",
+    "minPlayers": 4,
+    "maxPlayers": 99,
+    "durationMinutes": 12,
+    "description": "Players pair up 15–20m apart. The kicker delivers a consistent kick to chest height while the marker focuses on correct hand positioning and a secure catch. Swap roles every 10 marks. Progress to high marks.",
+    "diagram": {
+      "fieldType": "open",
+      "players": [
+        { "id": "k1", "x": 0.20, "y": 0.28, "role": "attacker", "label": "K" },
+        { "id": "m1", "x": 0.20, "y": 0.72, "role": "player",   "label": "M" },
+        { "id": "k2", "x": 0.50, "y": 0.28, "role": "attacker", "label": "K" },
+        { "id": "m2", "x": 0.50, "y": 0.72, "role": "player",   "label": "M" },
+        { "id": "k3", "x": 0.80, "y": 0.28, "role": "attacker", "label": "K" },
+        { "id": "m3", "x": 0.80, "y": 0.72, "role": "player",   "label": "M" }
+      ],
+      "arrows": [
+        { "from": "k1", "to": "m1", "type": "kick" },
+        { "from": "k2", "to": "m2", "type": "kick" },
+        { "from": "k3", "to": "m3", "type": "kick" }
+      ],
+      "zones": []
+    }
+  },
+  {
+    "id": "skills_003",
+    "name": "Drop Punt Pairs",
+    "category": "basic_skills",
+    "minPlayers": 2,
+    "maxPlayers": 99,
+    "durationMinutes": 15,
+    "description": "Players kick drop punts back and forth in pairs. Begin at 10m and increase distance by 5m every 3 minutes to a maximum of 45m. Count consecutive successful marks as a competitive element.",
+    "diagram": {
+      "fieldType": "open",
+      "players": [
+        { "id": "p1", "x": 0.15, "y": 0.30, "role": "player", "label": "1" },
+        { "id": "p2", "x": 0.38, "y": 0.30, "role": "player", "label": "2" },
+        { "id": "p3", "x": 0.15, "y": 0.70, "role": "player", "label": "1" },
+        { "id": "p4", "x": 0.38, "y": 0.70, "role": "player", "label": "2" },
+        { "id": "p5", "x": 0.62, "y": 0.30, "role": "player", "label": "1" },
+        { "id": "p6", "x": 0.85, "y": 0.30, "role": "player", "label": "2" },
+        { "id": "p7", "x": 0.62, "y": 0.70, "role": "player", "label": "1" },
+        { "id": "p8", "x": 0.85, "y": 0.70, "role": "player", "label": "2" }
+      ],
+      "arrows": [
+        { "from": "p1", "to": "p2", "type": "kick" },
+        { "from": "p3", "to": "p4", "type": "kick" },
+        { "from": "p5", "to": "p6", "type": "kick" },
+        { "from": "p7", "to": "p8", "type": "kick" }
+      ],
+      "zones": []
+    }
+  },
+  {
+    "id": "skills_004",
+    "name": "Chest Mark Drill",
+    "category": "basic_skills",
+    "minPlayers": 4,
+    "maxPlayers": 20,
+    "durationMinutes": 10,
+    "description": "The kicker chips the ball to a stationary mark-taker who must catch at chest height. The mark-taker gives a target with outstretched arms. Emphasise watching the ball into the hands and strong grip.",
+    "diagram": {
+      "fieldType": "open",
+      "players": [
+        { "id": "k1", "x": 0.22, "y": 0.22, "role": "attacker", "label": "K" },
+        { "id": "m1", "x": 0.22, "y": 0.78, "role": "player",   "label": "M" },
+        { "id": "k2", "x": 0.50, "y": 0.22, "role": "attacker", "label": "K" },
+        { "id": "m2", "x": 0.50, "y": 0.78, "role": "player",   "label": "M" },
+        { "id": "k3", "x": 0.78, "y": 0.22, "role": "attacker", "label": "K" },
+        { "id": "m3", "x": 0.78, "y": 0.78, "role": "player",   "label": "M" }
+      ],
+      "arrows": [
+        { "from": "k1", "to": "m1", "type": "kick" },
+        { "from": "k2", "to": "m2", "type": "kick" },
+        { "from": "k3", "to": "m3", "type": "kick" }
+      ],
+      "zones": []
+    }
+  },
+  {
+    "id": "skills_005",
+    "name": "Spoiling Drill",
+    "category": "basic_skills",
+    "minPlayers": 6,
+    "maxPlayers": 18,
+    "durationMinutes": 15,
+    "description": "A kicker chips to a contest between an attacker and defender. The defender must punch the ball away with a closed fist before the attacker takes the mark. Rotate roles every 5 contests. Focus on timing the jump.",
+    "diagram": {
+      "fieldType": "box",
+      "players": [
+        { "id": "k1", "x": 0.50, "y": 0.12, "role": "leader",   "label": "K" },
+        { "id": "a1", "x": 0.40, "y": 0.72, "role": "attacker", "label": "A" },
+        { "id": "d1", "x": 0.55, "y": 0.62, "role": "defender", "label": "D" },
+        { "id": "k2", "x": 0.15, "y": 0.12, "role": "leader",   "label": "K" },
+        { "id": "a2", "x": 0.15, "y": 0.72, "role": "attacker", "label": "A" },
+        { "id": "d2", "x": 0.22, "y": 0.62, "role": "defender", "label": "D" },
+        { "id": "k3", "x": 0.83, "y": 0.12, "role": "leader",   "label": "K" },
+        { "id": "a3", "x": 0.75, "y": 0.72, "role": "attacker", "label": "A" },
+        { "id": "d3", "x": 0.87, "y": 0.62, "role": "defender", "label": "D" }
+      ],
+      "arrows": [
+        { "from": "k1", "to": "a1", "type": "kick" },
+        { "from": "k2", "to": "a2", "type": "kick" },
+        { "from": "k3", "to": "a3", "type": "kick" }
+      ],
+      "zones": []
+    }
+  },
+  {
+    "id": "skills_006",
+    "name": "Banana Kick Practice",
+    "category": "basic_skills",
+    "minPlayers": 4,
+    "maxPlayers": 20,
+    "durationMinutes": 15,
+    "description": "Players practice banana/check-side kicks from 20–30m at a slight angle to a stationary target or goal. The ball curves significantly in flight. Emphasise striking across the ball at point of contact.",
+    "diagram": {
+      "fieldType": "oval_half",
+      "players": [
+        { "id": "k1", "x": 0.20, "y": 0.55, "role": "attacker", "label": "K" },
+        { "id": "t1", "x": 0.42, "y": 0.15, "role": "player",   "label": "T" },
+        { "id": "k2", "x": 0.80, "y": 0.55, "role": "attacker", "label": "K" },
+        { "id": "t2", "x": 0.58, "y": 0.15, "role": "player",   "label": "T" },
+        { "id": "k3", "x": 0.30, "y": 0.80, "role": "attacker", "label": "K" },
+        { "id": "t3", "x": 0.50, "y": 0.12, "role": "player",   "label": "T" }
+      ],
+      "arrows": [
+        { "from": "k1", "to": "t1", "type": "kick" },
+        { "from": "k2", "to": "t2", "type": "kick" },
+        { "from": "k3", "to": "t3", "type": "kick" }
+      ],
+      "zones": []
+    }
+  },
+  {
+    "id": "fitness_001",
+    "name": "Agility Cone Circuit",
+    "category": "fitness",
+    "minPlayers": 4,
+    "maxPlayers": 20,
+    "durationMinutes": 20,
+    "description": "Set up cones in a T-shape or Z-shape. Players sprint to each cone, change direction quickly, and return to start. Complete 6 repetitions with 30-second rest. Focus on low centre of gravity when changing direction.",
+    "diagram": {
+      "fieldType": "box",
+      "players": [
+        { "id": "s1", "x": 0.50, "y": 0.85, "role": "attacker", "label": "S" },
+        { "id": "c1", "x": 0.50, "y": 0.55, "role": "leader",   "label": "●" },
+        { "id": "c2", "x": 0.25, "y": 0.25, "role": "leader",   "label": "●" },
+        { "id": "c3", "x": 0.75, "y": 0.25, "role": "leader",   "label": "●" },
+        { "id": "c4", "x": 0.50, "y": 0.25, "role": "leader",   "label": "●" }
+      ],
+      "arrows": [
+        { "from": "s1", "to": "c1", "type": "run" },
+        { "from": "c1", "to": "c2", "type": "run" },
+        { "from": "c2", "to": "c4", "type": "run" },
+        { "from": "c4", "to": "c3", "type": "run" },
+        { "from": "c3", "to": "s1", "type": "run" }
+      ],
+      "zones": []
+    }
+  },
+  {
+    "id": "fitness_002",
+    "name": "Shuttle Runs",
+    "category": "fitness",
+    "minPlayers": 4,
+    "maxPlayers": 99,
+    "durationMinutes": 15,
+    "description": "Mark out distances of 10m, 20m, and 30m. Players sprint to the 10m mark and back, then 20m and back, then 30m and back — that is one set. Complete 5 sets with 60-second rest between sets.",
+    "diagram": {
+      "fieldType": "corridor",
+      "players": [
+        { "id": "p1", "x": 0.30, "y": 0.88, "role": "attacker", "label": "1" },
+        { "id": "p2", "x": 0.45, "y": 0.88, "role": "attacker", "label": "2" },
+        { "id": "p3", "x": 0.55, "y": 0.88, "role": "defender", "label": "3" },
+        { "id": "p4", "x": 0.70, "y": 0.88, "role": "defender", "label": "4" },
+        { "id": "m1", "x": 0.50, "y": 0.62, "role": "player",   "label": "·" },
+        { "id": "m2", "x": 0.50, "y": 0.35, "role": "player",   "label": "·" },
+        { "id": "m3", "x": 0.50, "y": 0.10, "role": "player",   "label": "·" }
+      ],
+      "arrows": [
+        { "from": "p1", "to": "m1", "type": "run" },
+        { "from": "p2", "to": "m2", "type": "run" },
+        { "from": "p3", "to": "m3", "type": "run" }
+      ],
+      "zones": []
+    }
+  },
+  {
+    "id": "fitness_003",
+    "name": "Repeat Sprint Drill",
+    "category": "fitness",
+    "minPlayers": 4,
+    "maxPlayers": 99,
+    "durationMinutes": 20,
+    "description": "Players sprint 40m at maximum effort, jog 40m back, and immediately sprint again. Complete 8–10 repetitions. The aim is to maintain consistent sprint times throughout. Monitor rest-to-work ratio closely.",
+    "diagram": {
+      "fieldType": "corridor",
+      "players": [
+        { "id": "p1", "x": 0.30, "y": 0.88, "role": "attacker", "label": "1" },
+        { "id": "p2", "x": 0.45, "y": 0.88, "role": "attacker", "label": "2" },
+        { "id": "p3", "x": 0.55, "y": 0.88, "role": "defender", "label": "3" },
+        { "id": "p4", "x": 0.70, "y": 0.88, "role": "defender", "label": "4" },
+        { "id": "e1", "x": 0.50, "y": 0.10, "role": "player",   "label": "·" }
+      ],
+      "arrows": [
+        { "from": "p1", "to": "e1", "type": "run" },
+        { "from": "p2", "to": "e1", "type": "run" },
+        { "from": "p3", "to": "e1", "type": "run" },
+        { "from": "p4", "to": "e1", "type": "run" }
+      ],
+      "zones": []
+    }
+  },
+  {
+    "id": "fitness_004",
+    "name": "HIIT Circuit",
+    "category": "fitness",
+    "minPlayers": 6,
+    "maxPlayers": 24,
+    "durationMinutes": 25,
+    "description": "5 stations set up around a box: sprint, push-ups, jump squats, agility ladder, and handball wall. Players rotate every 40 seconds with 20-second rest. Complete 3 full rounds of all stations.",
+    "diagram": {
+      "fieldType": "box",
+      "players": [
+        { "id": "s1", "x": 0.18, "y": 0.18, "role": "attacker", "label": "S" },
+        { "id": "s2", "x": 0.82, "y": 0.18, "role": "attacker", "label": "P" },
+        { "id": "s3", "x": 0.82, "y": 0.82, "role": "defender", "label": "J" },
+        { "id": "s4", "x": 0.18, "y": 0.82, "role": "defender", "label": "A" },
+        { "id": "s5", "x": 0.50, "y": 0.50, "role": "leader",   "label": "H" }
+      ],
+      "arrows": [
+        { "from": "s1", "to": "s2", "type": "run" },
+        { "from": "s2", "to": "s3", "type": "run" },
+        { "from": "s3", "to": "s4", "type": "run" },
+        { "from": "s4", "to": "s5", "type": "run" },
+        { "from": "s5", "to": "s1", "type": "run" }
+      ],
+      "zones": []
+    }
+  },
+  {
+    "id": "fitness_005",
+    "name": "2km Time Trial",
+    "category": "fitness",
+    "minPlayers": 10,
+    "maxPlayers": 99,
+    "durationMinutes": 20,
+    "description": "Players complete a timed 2km run around the oval perimeter (approximately 5 laps of a standard oval). Record individual times and compare across sessions to track aerobic improvement throughout the season.",
+    "diagram": {
+      "fieldType": "oval_half",
+      "players": [
+        { "id": "p1", "x": 0.50, "y": 0.10, "role": "attacker", "label": "1" },
+        { "id": "p2", "x": 0.80, "y": 0.28, "role": "attacker", "label": "2" },
+        { "id": "p3", "x": 0.85, "y": 0.62, "role": "defender", "label": "3" },
+        { "id": "p4", "x": 0.55, "y": 0.88, "role": "defender", "label": "4" },
+        { "id": "p5", "x": 0.20, "y": 0.72, "role": "player",   "label": "5" },
+        { "id": "p6", "x": 0.15, "y": 0.38, "role": "player",   "label": "6" }
+      ],
+      "arrows": [
+        { "from": "p1", "to": "p2", "type": "run" },
+        { "from": "p2", "to": "p3", "type": "run" },
+        { "from": "p3", "to": "p4", "type": "run" },
+        { "from": "p4", "to": "p5", "type": "run" },
+        { "from": "p5", "to": "p6", "type": "run" },
+        { "from": "p6", "to": "p1", "type": "run" }
+      ],
+      "zones": []
+    }
+  },
+  {
+    "id": "fitness_006",
+    "name": "Bleep Test",
+    "category": "fitness",
+    "minPlayers": 10,
+    "maxPlayers": 99,
+    "durationMinutes": 15,
+    "description": "Standard multi-stage fitness test over 20m. Players run between two lines in time with audio beeps that gradually increase in speed. Players are eliminated when they can no longer reach the line in time. Target level 13+ for senior players.",
+    "diagram": {
+      "fieldType": "corridor",
+      "players": [
+        { "id": "p1", "x": 0.28, "y": 0.88, "role": "attacker", "label": "1" },
+        { "id": "p2", "x": 0.38, "y": 0.88, "role": "attacker", "label": "2" },
+        { "id": "p3", "x": 0.50, "y": 0.88, "role": "defender", "label": "3" },
+        { "id": "p4", "x": 0.62, "y": 0.88, "role": "defender", "label": "4" },
+        { "id": "p5", "x": 0.72, "y": 0.88, "role": "player",   "label": "5" },
+        { "id": "end", "x": 0.50, "y": 0.10, "role": "player",  "label": "·" }
+      ],
+      "arrows": [
+        { "from": "p1", "to": "end", "type": "run" },
+        { "from": "p3", "to": "end", "type": "run" },
+        { "from": "p5", "to": "end", "type": "run" }
+      ],
+      "zones": []
+    }
+  },
+  {
+    "id": "game_001",
+    "name": "3v2 Corridor Drill",
+    "category": "game_sense",
+    "minPlayers": 9,
+    "maxPlayers": 18,
+    "durationMinutes": 20,
+    "description": "Three attackers attempt to move the ball from one end to the other of a corridor against two defenders. Attackers must use space, handballs, and short kicks. Defenders aim to intercept or force a turnover.",
+    "diagram": {
+      "fieldType": "corridor",
+      "players": [
+        { "id": "a1", "x": 0.35, "y": 0.12, "role": "attacker", "label": "A" },
+        { "id": "a2", "x": 0.55, "y": 0.18, "role": "attacker", "label": "A" },
+        { "id": "a3", "x": 0.45, "y": 0.28, "role": "attacker", "label": "A" },
+        { "id": "d1", "x": 0.38, "y": 0.52, "role": "defender", "label": "D" },
+        { "id": "d2", "x": 0.62, "y": 0.52, "role": "defender", "label": "D" }
+      ],
+      "arrows": [
+        { "from": "a1", "to": "a3", "type": "handball" },
+        { "from": "a3", "to": "a2", "type": "handball" },
+        { "from": "a2", "to": "d1",  "type": "run" }
+      ],
+      "zones": []
+    }
+  },
+  {
+    "id": "game_002",
+    "name": "4v4 Zone Game",
+    "category": "game_sense",
+    "minPlayers": 16,
+    "maxPlayers": 24,
+    "durationMinutes": 25,
+    "description": "Two zones marked on half the oval. Each team defends their zone. Players may not enter the opponent's zone but can kick/handball into it. Possession in opponent's zone scores a point. 5-minute games, then rotate.",
+    "diagram": {
+      "fieldType": "oval_half",
+      "players": [
+        { "id": "a1", "x": 0.22, "y": 0.28, "role": "attacker", "label": "A" },
+        { "id": "a2", "x": 0.38, "y": 0.38, "role": "attacker", "label": "A" },
+        { "id": "a3", "x": 0.22, "y": 0.55, "role": "attacker", "label": "A" },
+        { "id": "a4", "x": 0.38, "y": 0.65, "role": "attacker", "label": "A" },
+        { "id": "d1", "x": 0.62, "y": 0.28, "role": "defender", "label": "D" },
+        { "id": "d2", "x": 0.78, "y": 0.38, "role": "defender", "label": "D" },
+        { "id": "d3", "x": 0.62, "y": 0.55, "role": "defender", "label": "D" },
+        { "id": "d4", "x": 0.78, "y": 0.65, "role": "defender", "label": "D" }
+      ],
+      "arrows": [
+        { "from": "a2", "to": "d1", "type": "kick" },
+        { "from": "a4", "to": "d3", "type": "handball" }
+      ],
+      "zones": []
+    }
+  },
+  {
+    "id": "game_003",
+    "name": "Centre Clearance Drill",
+    "category": "game_sense",
+    "minPlayers": 12,
+    "maxPlayers": 24,
+    "durationMinutes": 20,
+    "description": "Simulate a centre bounce. Rucks contest in the middle while onballers spread to receive. Wings push up to provide options. The team that wins clearance tries to move the ball to a forward target.",
+    "diagram": {
+      "fieldType": "oval_half",
+      "players": [
+        { "id": "r1", "x": 0.48, "y": 0.50, "role": "attacker", "label": "R" },
+        { "id": "r2", "x": 0.52, "y": 0.50, "role": "defender", "label": "R" },
+        { "id": "o1", "x": 0.30, "y": 0.42, "role": "attacker", "label": "O" },
+        { "id": "o2", "x": 0.70, "y": 0.42, "role": "defender", "label": "O" },
+        { "id": "w1", "x": 0.18, "y": 0.62, "role": "attacker", "label": "W" },
+        { "id": "w2", "x": 0.82, "y": 0.62, "role": "defender", "label": "W" },
+        { "id": "f1", "x": 0.35, "y": 0.15, "role": "attacker", "label": "F" },
+        { "id": "f2", "x": 0.65, "y": 0.15, "role": "attacker", "label": "F" }
+      ],
+      "arrows": [
+        { "from": "r1", "to": "o1", "type": "handball" },
+        { "from": "o1", "to": "f1", "type": "kick" },
+        { "from": "w1", "to": "o1", "type": "run" }
+      ],
+      "zones": []
+    }
+  },
+  {
+    "id": "game_004",
+    "name": "Half-Back Defensive Zone",
+    "category": "game_sense",
+    "minPlayers": 10,
+    "maxPlayers": 18,
+    "durationMinutes": 20,
+    "description": "Defenders form a structured zone across the half-back line. Forwards try to break through with short kicks and leads. Defenders must communicate, maintain structure, and force the ball wide. Rotate every 4 minutes.",
+    "diagram": {
+      "fieldType": "oval_half",
+      "players": [
+        { "id": "d1", "x": 0.20, "y": 0.55, "role": "defender", "label": "D" },
+        { "id": "d2", "x": 0.38, "y": 0.50, "role": "defender", "label": "D" },
+        { "id": "d3", "x": 0.56, "y": 0.50, "role": "defender", "label": "D" },
+        { "id": "d4", "x": 0.74, "y": 0.50, "role": "defender", "label": "D" },
+        { "id": "d5", "x": 0.88, "y": 0.55, "role": "defender", "label": "D" },
+        { "id": "a1", "x": 0.25, "y": 0.25, "role": "attacker", "label": "F" },
+        { "id": "a2", "x": 0.50, "y": 0.20, "role": "attacker", "label": "F" },
+        { "id": "a3", "x": 0.75, "y": 0.25, "role": "attacker", "label": "F" }
+      ],
+      "arrows": [
+        { "from": "a2", "to": "a1", "type": "kick" },
+        { "from": "a1", "to": "d1", "type": "run" },
+        { "from": "d2", "to": "d3", "type": "run" }
+      ],
+      "zones": []
+    }
+  },
+  {
+    "id": "game_005",
+    "name": "Forward Line Movement",
+    "category": "game_sense",
+    "minPlayers": 10,
+    "maxPlayers": 18,
+    "durationMinutes": 20,
+    "description": "Three forwards rotate between pocket, square, and centre-half positions. A feeder delivers kicks while forwards practice leading patterns — crumbing, high marking, and running into open space. Focus on timing of leads.",
+    "diagram": {
+      "fieldType": "oval_half",
+      "players": [
+        { "id": "f1", "x": 0.25, "y": 0.35, "role": "attacker", "label": "F" },
+        { "id": "f2", "x": 0.50, "y": 0.22, "role": "attacker", "label": "F" },
+        { "id": "f3", "x": 0.75, "y": 0.35, "role": "attacker", "label": "F" },
+        { "id": "d1", "x": 0.22, "y": 0.50, "role": "defender", "label": "D" },
+        { "id": "d2", "x": 0.78, "y": 0.50, "role": "defender", "label": "D" },
+        { "id": "feed", "x": 0.50, "y": 0.72, "role": "leader",   "label": "K" }
+      ],
+      "arrows": [
+        { "from": "feed", "to": "f2",  "type": "kick" },
+        { "from": "f1",   "to": "f2",  "type": "run" },
+        { "from": "f3",   "to": "f2",  "type": "run" },
+        { "from": "f2",   "to": "f1",  "type": "handball" }
+      ],
+      "zones": []
+    }
+  },
+  {
+    "id": "game_006",
+    "name": "Kick-In Drill",
+    "category": "game_sense",
+    "minPlayers": 8,
+    "maxPlayers": 18,
+    "durationMinutes": 15,
+    "description": "A player takes a kick-in from the goal square after a behind. Outlets spread across the half-back line with opponents in pursuit. The kicker must find a leading target or use the boundary to exit the defensive 50.",
+    "diagram": {
+      "fieldType": "oval_half",
+      "players": [
+        { "id": "ki",  "x": 0.50, "y": 0.06, "role": "leader",   "label": "K" },
+        { "id": "o1",  "x": 0.20, "y": 0.38, "role": "attacker", "label": "O" },
+        { "id": "o2",  "x": 0.40, "y": 0.32, "role": "attacker", "label": "O" },
+        { "id": "o3",  "x": 0.60, "y": 0.32, "role": "attacker", "label": "O" },
+        { "id": "o4",  "x": 0.80, "y": 0.38, "role": "attacker", "label": "O" },
+        { "id": "pr1", "x": 0.22, "y": 0.50, "role": "defender", "label": "P" },
+        { "id": "pr2", "x": 0.78, "y": 0.50, "role": "defender", "label": "P" }
+      ],
+      "arrows": [
+        { "from": "ki",  "to": "o2",  "type": "kick" },
+        { "from": "ki",  "to": "o3",  "type": "kick" },
+        { "from": "o2",  "to": "o1",  "type": "handball" },
+        { "from": "pr1", "to": "o1",  "type": "run" }
+      ],
+      "zones": []
+    }
+  },
+  {
+    "id": "fun_001",
+    "name": "Kick for Goal Competition",
+    "category": "fun_games",
+    "minPlayers": 4,
+    "maxPlayers": 24,
+    "durationMinutes": 20,
+    "description": "Players take turns kicking for goal from set positions — 30m in front, 30m on a 45-degree angle, and 40m directly in front. Score 6 for a goal and 1 for a behind. Total after 5 kicks each; highest score wins.",
+    "diagram": {
+      "fieldType": "oval_half",
+      "players": [
+        { "id": "k1", "x": 0.50, "y": 0.42, "role": "attacker", "label": "K" },
+        { "id": "k2", "x": 0.28, "y": 0.52, "role": "attacker", "label": "K" },
+        { "id": "k3", "x": 0.72, "y": 0.52, "role": "attacker", "label": "K" },
+        { "id": "q1", "x": 0.50, "y": 0.65, "role": "player",   "label": "Q" },
+        { "id": "q2", "x": 0.38, "y": 0.65, "role": "player",   "label": "Q" },
+        { "id": "q3", "x": 0.62, "y": 0.65, "role": "player",   "label": "Q" }
+      ],
+      "arrows": [
+        { "from": "k1", "to": "k2", "type": "kick" },
+        { "from": "k2", "to": "k3", "type": "kick" },
+        { "from": "k3", "to": "k1", "type": "kick" }
+      ],
+      "zones": []
+    }
+  },
+  {
+    "id": "fun_002",
+    "name": "AFL Cricket",
+    "category": "fun_games",
+    "minPlayers": 8,
+    "maxPlayers": 20,
+    "durationMinutes": 25,
+    "description": "AFL-style cricket where fielders use handballs and short kicks. The batter earns runs by kicking the ball and running, but can be dismissed by a caught mark or hit on a short kick. Fun, inclusive game to close a session.",
+    "diagram": {
+      "fieldType": "open",
+      "players": [
+        { "id": "bat",  "x": 0.50, "y": 0.70, "role": "leader",   "label": "B" },
+        { "id": "bowl", "x": 0.50, "y": 0.30, "role": "attacker", "label": "W" },
+        { "id": "f1",   "x": 0.20, "y": 0.25, "role": "player",   "label": "F" },
+        { "id": "f2",   "x": 0.38, "y": 0.18, "role": "player",   "label": "F" },
+        { "id": "f3",   "x": 0.62, "y": 0.18, "role": "player",   "label": "F" },
+        { "id": "f4",   "x": 0.80, "y": 0.25, "role": "player",   "label": "F" },
+        { "id": "f5",   "x": 0.18, "y": 0.50, "role": "defender", "label": "F" },
+        { "id": "f6",   "x": 0.82, "y": 0.50, "role": "defender", "label": "F" }
+      ],
+      "arrows": [
+        { "from": "bowl", "to": "bat",  "type": "kick" },
+        { "from": "bat",  "to": "f2",   "type": "kick" }
+      ],
+      "zones": []
+    }
+  },
+  {
+    "id": "fun_003",
+    "name": "Torpedo Challenge",
+    "category": "fun_games",
+    "minPlayers": 2,
+    "maxPlayers": 20,
+    "durationMinutes": 15,
+    "description": "Players compete to kick the longest torpedo (spiral) punt. Mark the landing spots and measure distance. Three attempts each. The torpedo kick travels faster and further than a drop punt. Award prizes for best distance and technique.",
+    "diagram": {
+      "fieldType": "open",
+      "players": [
+        { "id": "k1", "x": 0.15, "y": 0.30, "role": "attacker", "label": "K" },
+        { "id": "k2", "x": 0.15, "y": 0.70, "role": "attacker", "label": "K" },
+        { "id": "l1", "x": 0.55, "y": 0.30, "role": "player",   "label": "·" },
+        { "id": "l2", "x": 0.70, "y": 0.30, "role": "player",   "label": "·" },
+        { "id": "l3", "x": 0.85, "y": 0.30, "role": "player",   "label": "·" },
+        { "id": "l4", "x": 0.55, "y": 0.70, "role": "player",   "label": "·" },
+        { "id": "l5", "x": 0.70, "y": 0.70, "role": "player",   "label": "·" },
+        { "id": "l6", "x": 0.85, "y": 0.70, "role": "player",   "label": "·" }
+      ],
+      "arrows": [
+        { "from": "k1", "to": "l3", "type": "kick" },
+        { "from": "k2", "to": "l6", "type": "kick" }
+      ],
+      "zones": []
+    }
+  },
+  {
+    "id": "fun_004",
+    "name": "Longest Kick Competition",
+    "category": "fun_games",
+    "minPlayers": 4,
+    "maxPlayers": 99,
+    "durationMinutes": 20,
+    "description": "All players kick from a common start line and try to kick as far as possible. A marker flags where the ball first bounces. Three kicks each. The player whose best kick travels the greatest distance wins. Great for all ages.",
+    "diagram": {
+      "fieldType": "open",
+      "players": [
+        { "id": "k1", "x": 0.12, "y": 0.30, "role": "attacker", "label": "1" },
+        { "id": "k2", "x": 0.12, "y": 0.50, "role": "attacker", "label": "2" },
+        { "id": "k3", "x": 0.12, "y": 0.70, "role": "defender", "label": "3" },
+        { "id": "m1", "x": 0.55, "y": 0.40, "role": "player",   "label": "·" },
+        { "id": "m2", "x": 0.72, "y": 0.40, "role": "player",   "label": "·" },
+        { "id": "m3", "x": 0.88, "y": 0.40, "role": "player",   "label": "·" }
+      ],
+      "arrows": [
+        { "from": "k1", "to": "m2", "type": "kick" },
+        { "from": "k2", "to": "m3", "type": "kick" },
+        { "from": "k3", "to": "m1", "type": "kick" }
+      ],
+      "zones": []
+    }
+  },
+  {
+    "id": "fun_005",
+    "name": "End Zone Football",
+    "category": "fun_games",
+    "minPlayers": 10,
+    "maxPlayers": 24,
+    "durationMinutes": 25,
+    "description": "Teams of 5–8 play a modified game where points are scored by receiving the ball in the end zone (marked area at each end). No tackling — defenders must intercept passes. Focus on space, leads, and teamwork.",
+    "diagram": {
+      "fieldType": "corridor",
+      "players": [
+        { "id": "a1", "x": 0.35, "y": 0.20, "role": "attacker", "label": "A" },
+        { "id": "a2", "x": 0.55, "y": 0.28, "role": "attacker", "label": "A" },
+        { "id": "a3", "x": 0.45, "y": 0.45, "role": "attacker", "label": "A" },
+        { "id": "d1", "x": 0.40, "y": 0.60, "role": "defender", "label": "D" },
+        { "id": "d2", "x": 0.60, "y": 0.55, "role": "defender", "label": "D" },
+        { "id": "d3", "x": 0.38, "y": 0.75, "role": "defender", "label": "D" }
+      ],
+      "arrows": [
+        { "from": "a3", "to": "a1", "type": "handball" },
+        { "from": "a1", "to": "a2", "type": "kick" },
+        { "from": "d1", "to": "a3", "type": "run" }
+      ],
+      "zones": []
+    }
+  },
+  {
+    "id": "fun_006",
+    "name": "Handball Tennis",
+    "category": "fun_games",
+    "minPlayers": 4,
+    "maxPlayers": 12,
+    "durationMinutes": 20,
+    "description": "A rope or cones marks a 'net' across the box. Teams of 2–3 handball the ball over the net, scoring a point if it lands in bounds. Can only hold for 2 seconds before handballing. First to 11 points wins.",
+    "diagram": {
+      "fieldType": "box",
+      "players": [
+        { "id": "a1", "x": 0.28, "y": 0.28, "role": "attacker", "label": "A" },
+        { "id": "a2", "x": 0.42, "y": 0.42, "role": "attacker", "label": "A" },
+        { "id": "b1", "x": 0.72, "y": 0.28, "role": "defender", "label": "B" },
+        { "id": "b2", "x": 0.58, "y": 0.42, "role": "defender", "label": "B" },
+        { "id": "n1", "x": 0.50, "y": 0.12, "role": "player",   "label": "·" },
+        { "id": "n2", "x": 0.50, "y": 0.88, "role": "player",   "label": "·" }
+      ],
+      "arrows": [
+        { "from": "a2", "to": "b2", "type": "handball" }
+      ],
+      "zones": []
+    }
+  }
+]

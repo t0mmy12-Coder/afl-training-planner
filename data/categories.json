@@ -1,0 +1,37 @@
+[
+  {
+    "id": "warm_up",
+    "name": "Warm Up",
+    "icon": "🏃",
+    "accentColor": "#FF9800",
+    "description": "Get blood flowing and muscles ready for action"
+  },
+  {
+    "id": "basic_skills",
+    "name": "Basic Skills",
+    "icon": "🏉",
+    "accentColor": "#4CAF50",
+    "description": "Core AFL skills: kicking, marking, handballing"
+  },
+  {
+    "id": "fitness",
+    "name": "Fitness",
+    "icon": "💪",
+    "accentColor": "#CC0000",
+    "description": "Conditioning, endurance and strength training"
+  },
+  {
+    "id": "game_sense",
+    "name": "Game Sense",
+    "icon": "🧠",
+    "accentColor": "#2196F3",
+    "description": "Tactical drills and game-day scenarios"
+  },
+  {
+    "id": "fun_games",
+    "name": "Fun Games",
+    "icon": "🎯",
+    "accentColor": "#FFD700",
+    "description": "Enjoyable competition games to finish the session"
+  }
+]

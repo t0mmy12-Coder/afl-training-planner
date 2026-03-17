@@ -1,0 +1,892 @@
+:root {
+  --afl-navy:   #003087;
+  --afl-red:    #CC0000;
+  --afl-gold:   #FFD700;
+  --afl-grass:  #2D5A1B;
+  --bg:         #001A4D;
+  --surface:    #002266;
+  --text:       #FFFFFF;
+  --text-muted: rgba(255,255,255,0.65);
+  --border:     rgba(255,255,255,0.12);
+  --transition: 0.22s ease;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  overflow: hidden;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  position: relative;
+}
+
+/* ─── NAV BAR ─────────────────────────────────────────────── */
+
+#nav-bar {
+  flex-shrink: 0;
+  background: var(--afl-navy);
+  border-bottom: 2px solid var(--afl-gold);
+  z-index: 100;
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  height: 54px;
+  gap: 1rem;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 800;
+  font-size: 1rem;
+  letter-spacing: 0.06em;
+  color: var(--afl-gold);
+  cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.nav-logo-oval {
+  width: 28px;
+  height: 20px;
+}
+
+.nav-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  overflow: hidden;
+}
+
+.nav-breadcrumb .crumb {
+  cursor: pointer;
+  transition: color var(--transition);
+  white-space: nowrap;
+}
+.nav-breadcrumb .crumb:hover { color: var(--text); }
+.nav-breadcrumb .sep { opacity: 0.4; flex-shrink: 0; }
+.nav-breadcrumb .crumb.active { color: var(--afl-gold); font-weight: 600; cursor: default; }
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-shrink: 0;
+}
+
+.btn-plan {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: var(--afl-gold);
+  color: var(--afl-navy);
+  border: none;
+  border-radius: 6px;
+  padding: 0.4rem 0.9rem;
+  font-weight: 700;
+  font-size: 0.82rem;
+  cursor: pointer;
+  transition: opacity var(--transition);
+  white-space: nowrap;
+}
+.btn-plan:hover { opacity: 0.88; }
+
+.badge {
+  position: absolute;
+  top: -7px;
+  right: -7px;
+  background: var(--afl-red);
+  color: white;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  font-size: 0.68rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  border: 2px solid var(--afl-navy);
+}
+
+/* ─── SCREEN ROOT ─────────────────────────────────────────── */
+
+#screen-root {
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+}
+
+.screen {
+  position: absolute;
+  inset: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  animation: fadeIn 0.22s ease;
+}
+
+/* ─── LANDING SCREEN ──────────────────────────────────────── */
+
+.landing {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100%;
+  padding: 2rem 1rem;
+  gap: 0;
+  position: relative;
+}
+
+.landing-bg {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.07;
+  pointer-events: none;
+}
+
+.landing-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  max-width: 580px;
+  width: 100%;
+}
+
+.landing-title {
+  font-size: clamp(1.8rem, 5vw, 3rem);
+  font-weight: 800;
+  color: var(--afl-gold);
+  line-height: 1.1;
+  margin-bottom: 0.4rem;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.6);
+}
+
+.landing-subtitle {
+  font-size: 1rem;
+  color: var(--text-muted);
+  margin-bottom: 2.5rem;
+}
+
+.player-count-label {
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--afl-gold);
+  margin-bottom: 1rem;
+}
+
+.player-count-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.pill {
+  background: var(--surface);
+  border: 2px solid var(--border);
+  border-radius: 50px;
+  padding: 0.6rem 1.4rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all var(--transition);
+  min-width: 80px;
+  text-align: center;
+  color: var(--text);
+}
+.pill:hover {
+  border-color: var(--afl-gold);
+  color: var(--afl-gold);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(255,215,0,0.18);
+}
+.pill.selected {
+  background: var(--afl-gold);
+  color: var(--afl-navy);
+  border-color: var(--afl-gold);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(255,215,0,0.3);
+}
+
+.btn-continue {
+  background: var(--afl-red);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0.85rem 2.8rem;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all var(--transition);
+  letter-spacing: 0.05em;
+}
+.btn-continue:hover {
+  background: #e00;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 22px rgba(204,0,0,0.4);
+}
+.btn-continue:disabled {
+  opacity: 0.35;
+  cursor: default;
+  transform: none;
+  box-shadow: none;
+}
+
+/* ─── CATEGORIES SCREEN ───────────────────────────────────── */
+
+.categories-screen {
+  padding: 1.75rem 1.5rem;
+}
+
+.screen-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.screen-title {
+  font-size: 1.7rem;
+  font-weight: 800;
+  color: var(--afl-gold);
+}
+
+.screen-subtitle {
+  color: var(--text-muted);
+  margin-top: 0.3rem;
+  font-size: 0.9rem;
+}
+
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+  gap: 1.25rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.category-card {
+  background: var(--surface);
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  padding: 2rem 1.25rem 1.5rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all var(--transition);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+}
+.category-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--card-accent, var(--afl-gold));
+  box-shadow: 0 8px 28px rgba(0,0,0,0.35);
+}
+
+.category-icon {
+  font-size: 2.8rem;
+  line-height: 1;
+}
+
+.category-name {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.category-desc {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+.category-count {
+  font-size: 0.76rem;
+  font-weight: 600;
+  padding: 0.25rem 0.65rem;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.08);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+}
+
+/* ─── DRILL BROWSER ───────────────────────────────────────── */
+
+.drill-browser {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+
+.category-tabs {
+  display: flex;
+  overflow-x: auto;
+  border-bottom: 2px solid var(--border);
+  background: var(--surface);
+  flex-shrink: 0;
+  scrollbar-width: none;
+}
+.category-tabs::-webkit-scrollbar { display: none; }
+
+.tab {
+  padding: 0.7rem 1.2rem;
+  cursor: pointer;
+  font-size: 0.82rem;
+  font-weight: 600;
+  white-space: nowrap;
+  color: var(--text-muted);
+  border-bottom: 3px solid transparent;
+  transition: all var(--transition);
+  flex-shrink: 0;
+}
+.tab:hover { color: var(--text); }
+.tab.active {
+  color: var(--afl-gold);
+  border-bottom-color: var(--afl-gold);
+}
+
+.browser-body {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+  min-height: 0;
+}
+
+.drill-list {
+  width: 300px;
+  flex-shrink: 0;
+  overflow-y: auto;
+  border-right: 1px solid var(--border);
+  background: var(--bg);
+}
+
+.drill-list-header {
+  position: sticky;
+  top: 0;
+  padding: 0.6rem 1rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+  z-index: 1;
+}
+
+.drill-diagram-pane {
+  flex: 1;
+  overflow-y: auto;
+  background: #001233;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.empty-diagram {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  min-height: 200px;
+  color: var(--text-muted);
+  text-align: center;
+  gap: 0.6rem;
+}
+
+.empty-diagram-icon { font-size: 2.5rem; opacity: 0.3; }
+.empty-diagram p { font-size: 0.85rem; }
+
+/* ─── DRILL CARD ──────────────────────────────────────────── */
+
+.drill-card {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--border);
+  cursor: pointer;
+  transition: background var(--transition);
+  gap: 0.6rem;
+}
+.drill-card:hover { background: rgba(255,255,255,0.04); }
+.drill-card.active {
+  background: rgba(255,215,0,0.07);
+  border-left: 3px solid var(--afl-gold);
+  padding-left: calc(1rem - 3px);
+}
+
+.drill-card-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.drill-card-name {
+  font-weight: 600;
+  font-size: 0.86rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: var(--text);
+}
+
+.drill-card-meta {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  margin-top: 0.15rem;
+}
+
+.btn-add-drill {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 1.5px solid var(--border);
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all var(--transition);
+  line-height: 1;
+}
+.btn-add-drill:hover {
+  background: var(--afl-gold);
+  color: var(--afl-navy);
+  border-color: var(--afl-gold);
+}
+
+/* ─── DRILL DIAGRAM CARD ──────────────────────────────────── */
+
+.drill-diagram-card {
+  background: var(--surface);
+  border-radius: 12px;
+  overflow: hidden;
+  width: 100%;
+  max-width: 520px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.4);
+}
+
+.diagram-header {
+  padding: 1rem 1.25rem 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.diagram-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+}
+
+.diagram-meta {
+  font-size: 0.76rem;
+  color: var(--text-muted);
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.diagram-svg-container {
+  background: var(--afl-grass);
+  line-height: 0;
+}
+
+.diagram-svg-container svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.diagram-description {
+  padding: 0.9rem 1.25rem;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.55;
+  border-bottom: 1px solid var(--border);
+}
+
+.diagram-legend {
+  padding: 0.6rem 1.25rem;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+.legend-dash {
+  width: 22px;
+  height: 2px;
+  border-radius: 1px;
+}
+
+.btn-add-to-plan {
+  display: block;
+  margin: 0.9rem 1.25rem;
+  width: calc(100% - 2.5rem);
+  background: var(--afl-red);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 0.6rem;
+  font-weight: 700;
+  font-size: 0.88rem;
+  cursor: pointer;
+  transition: opacity var(--transition);
+}
+.btn-add-to-plan:hover { opacity: 0.88; }
+
+/* ─── PLAN PANEL ──────────────────────────────────────────── */
+
+.plan-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 200;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition);
+}
+.plan-overlay.open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.plan-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 360px;
+  background: var(--surface);
+  border-left: 1px solid var(--border);
+  z-index: 201;
+  display: flex;
+  flex-direction: column;
+  transform: translateX(100%);
+  transition: transform var(--transition);
+  box-shadow: -6px 0 32px rgba(0,0,0,0.5);
+}
+.plan-panel.open {
+  transform: translateX(0);
+}
+
+.plan-panel-header {
+  padding: 0.9rem 1.25rem;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--afl-navy);
+  flex-shrink: 0;
+}
+
+.plan-panel-title {
+  font-weight: 700;
+  color: var(--afl-gold);
+  font-size: 1rem;
+}
+
+.btn-close-panel {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 1.4rem;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0.2rem;
+  transition: color var(--transition);
+}
+.btn-close-panel:hover { color: var(--text); }
+
+.plan-selector-row {
+  padding: 0.65rem 1.25rem;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.plan-select {
+  flex: 1;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text);
+  padding: 0.4rem 0.5rem;
+  font-size: 0.82rem;
+  outline: none;
+}
+.plan-select:focus { border-color: var(--afl-gold); }
+
+.btn-new-plan {
+  background: var(--afl-gold);
+  color: var(--afl-navy);
+  border: none;
+  border-radius: 6px;
+  padding: 0.4rem 0.7rem;
+  font-weight: 700;
+  font-size: 0.76rem;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: opacity var(--transition);
+}
+.btn-new-plan:hover { opacity: 0.88; }
+
+.plan-name-row {
+  padding: 0.5rem 1.25rem;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+.plan-name-input {
+  flex: 1;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text);
+  padding: 0.4rem 0.7rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  outline: none;
+}
+.plan-name-input:focus { border-color: var(--afl-gold); }
+
+.btn-save-name {
+  background: none;
+  border: 1px solid var(--afl-gold);
+  color: var(--afl-gold);
+  border-radius: 6px;
+  padding: 0.4rem 0.7rem;
+  font-size: 0.76rem;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+.btn-save-name:hover { background: var(--afl-gold); color: var(--afl-navy); }
+
+.plan-drills-list {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0.25rem 0;
+}
+
+.plan-drill-item {
+  display: flex;
+  align-items: center;
+  padding: 0.55rem 1.25rem;
+  border-bottom: 1px solid var(--border);
+  gap: 0.5rem;
+}
+
+.plan-drill-order {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--afl-navy);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--afl-gold);
+  flex-shrink: 0;
+}
+
+.plan-drill-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.plan-drill-name {
+  font-size: 0.82rem;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: var(--text);
+}
+
+.plan-drill-duration {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+
+.plan-move-btns {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.btn-move {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  cursor: pointer;
+  padding: 0.1rem 0.25rem;
+  line-height: 1;
+  transition: color var(--transition);
+}
+.btn-move:hover { color: var(--text); }
+.btn-move:disabled { opacity: 0.2; cursor: default; }
+
+.btn-remove-drill {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 0.15rem;
+  transition: color var(--transition);
+  flex-shrink: 0;
+  line-height: 1;
+}
+.btn-remove-drill:hover { color: var(--afl-red); }
+
+.plan-empty {
+  padding: 2.5rem 1.5rem;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.86rem;
+  line-height: 1.6;
+}
+
+.plan-footer {
+  padding: 0.9rem 1.25rem;
+  border-top: 2px solid var(--border);
+  background: var(--afl-navy);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.plan-total {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+.plan-total strong {
+  color: var(--afl-gold);
+  font-size: 1.1rem;
+  font-weight: 800;
+}
+
+.btn-delete-plan {
+  background: none;
+  border: 1px solid rgba(204,0,0,0.4);
+  color: rgba(204,0,0,0.8);
+  border-radius: 6px;
+  padding: 0.3rem 0.65rem;
+  font-size: 0.72rem;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+.btn-delete-plan:hover {
+  background: var(--afl-red);
+  color: white;
+  border-color: var(--afl-red);
+}
+
+/* ─── EMPTY STATES ────────────────────────────────────────── */
+
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1.5rem;
+  text-align: center;
+  color: var(--text-muted);
+  gap: 0.5rem;
+  height: 100%;
+}
+.empty-state-icon { font-size: 2.5rem; opacity: 0.35; }
+.empty-state-title { font-weight: 700; color: var(--text); font-size: 0.95rem; }
+.empty-state p { font-size: 0.82rem; line-height: 1.5; }
+
+/* ─── UTILITY ─────────────────────────────────────────────── */
+
+button { font-family: inherit; }
+
+/* ─── ANIMATIONS ──────────────────────────────────────────── */
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ─── SCROLLBARS ──────────────────────────────────────────── */
+
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.18); border-radius: 3px; }
+
+/* ─── RESPONSIVE ──────────────────────────────────────────── */
+
+@media (max-width: 640px) {
+  .browser-body {
+    flex-direction: column;
+  }
+  .drill-list {
+    width: 100%;
+    height: 45%;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+    flex-shrink: 0;
+  }
+  .drill-diagram-pane {
+    flex: 1;
+    align-items: flex-start;
+  }
+  .plan-panel { width: 100%; }
+  .category-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+}
+
+/* ─── PRINT ───────────────────────────────────────────────── */
+
+@media print {
+  #nav-bar, .plan-overlay, .plan-panel, .btn-add-to-plan, .btn-add-drill { display: none !important; }
+  .drill-diagram-card { box-shadow: none; }
+  body { background: white; color: black; }
+}
