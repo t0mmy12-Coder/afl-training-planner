@@ -191,7 +191,7 @@ export function createDiagramEditor(initDiagram, onChange) {
       ${tool === 'addArrow' ? `
         <div class="de-tool-group">
           <span class="de-label">Type:</span>
-          ${allTypes.map(t => `<button class="de-tool-btn ${aType===t?'active':''}"
+          ${allTypes.map(t => `<button class="de-tool-btn ${!showCtForm && aType===t?'active':''}"
             data-atype="${t}">${typeLabel[t]||t}</button>`).join('')}
           <button class="de-tool-btn ${showCtForm?'active':''}" id="de-btn-newtype">+ Custom</button>
         </div>
@@ -324,7 +324,7 @@ export function createDiagramEditor(initDiagram, onChange) {
     if (tool === 'addPlayer') {
       d.players.push({ id: uid(), x: norm.x, y: norm.y, role, label: nextLabel() });
       selId = null; emit(); renderAll();
-    } else if (tool === 'addArrow') {
+    } else if (tool === 'addArrow' && !showCtForm) {
       draft = { x1: norm.x, y1: norm.y, x2: norm.x, y2: norm.y };
       window.addEventListener('pointermove', onDraftMove);
       window.addEventListener('pointerup',   onDraftEnd);
@@ -396,6 +396,21 @@ export function createDiagramEditor(initDiagram, onChange) {
       refreshSVG();
     }
   }
+
+  // ── Keyboard delete ───────────────────────────────────────────────────────
+  function onKeyDown(e) {
+    if (!wrap.isConnected) { document.removeEventListener('keydown', onKeyDown); return; }
+    if (e.key !== 'Delete' && e.key !== 'Backspace') return;
+    if (!selId) return;
+    const tag = document.activeElement?.tagName;
+    if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT') return;
+    e.preventDefault();
+    d.players = d.players.filter(p => p.id !== selId);
+    d.arrows  = d.arrows.filter(a => a.id !== selId);
+    selId = null;
+    emit(); renderAll();
+  }
+  document.addEventListener('keydown', onKeyDown);
 
   renderAll();
   return wrap;

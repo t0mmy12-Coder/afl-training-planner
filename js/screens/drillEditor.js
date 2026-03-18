@@ -45,7 +45,6 @@ export function mount(root, _params, _navigate) {
   // ── List pane ──────────────────────────────────────────────────────────────
   function renderList() {
     state = getState();
-    const custom = new Set(loadCustomDrills().map(d => d.id));
 
     listPane.innerHTML = `
       <div class="de-list-header">
@@ -71,10 +70,7 @@ export function mount(root, _params, _navigate) {
       drills.forEach(drill => {
         const row = document.createElement('div');
         row.className = `de-list-row ${editing?.id === drill.id ? 'active' : ''}`;
-        row.innerHTML = `
-          <span class="de-list-name">${drill.name}</span>
-          ${custom.has(drill.id) ? '<span class="de-custom-badge">custom</span>' : ''}
-        `;
+        row.innerHTML = `<span class="de-list-name">${drill.name}</span>`;
         row.addEventListener('click', () => {
           isNew   = false;
           editing = JSON.parse(JSON.stringify(drill));
