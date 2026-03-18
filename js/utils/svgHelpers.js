@@ -88,8 +88,8 @@ function openField() {
 
 // ─── SVG defs (arrowhead markers) ────────────────────────────────
 
-export function arrowDefs() {
-  return `
+export function arrowDefs(customTypes = []) {
+  const std = `
     <marker id="ah-run"      markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto">
       <path d="M0,0 L7,3.5 L0,7 Z" fill="#4CAF50"/>
     </marker>
@@ -100,6 +100,12 @@ export function arrowDefs() {
       <path d="M0,0 L7,3.5 L0,7 Z" fill="#FF9800"/>
     </marker>
   `;
+  const custom = customTypes.map(ct => `
+    <marker id="ah-${ct.id}" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto">
+      <path d="M0,0 L7,3.5 L0,7 Z" fill="${ct.color}"/>
+    </marker>
+  `).join('');
+  return std + custom;
 }
 
 // ─── Arrow rendering ──────────────────────────────────────────────
@@ -107,35 +113,49 @@ export function arrowDefs() {
 const PLAYER_RADIUS = 13; // must match renderPlayer
 
 export function renderArrow(arrow, playerMap) {
-  const from = playerMap[arrow.from];
-  const to   = playerMap[arrow.to];
-  if (!from || !to) return '';
+  let x1, y1, x2, y2;
 
-  const dx  = to.svgX - from.svgX;
-  const dy  = to.svgY - from.svgY;
-  const len = Math.sqrt(dx * dx + dy * dy);
-  if (len < 2) return '';
+  if (arrow.x1 !== undefined) {
+    // Free-form arrow (normalised 0-1 coords, used by drill editor)
+    x1 = (arrow.x1 * W).toFixed(1);
+    y1 = (arrow.y1 * H).toFixed(1);
+    x2 = (arrow.x2 * W).toFixed(1);
+    y2 = (arrow.y2 * H).toFixed(1);
+  } else {
+    // Player-reference arrow (original format)
+    const from = playerMap[arrow.from];
+    const to   = playerMap[arrow.to];
+    if (!from || !to) return '';
 
-  const ux = dx / len;
-  const uy = dy / len;
+    const dx  = to.svgX - from.svgX;
+    const dy  = to.svgY - from.svgY;
+    const len = Math.sqrt(dx * dx + dy * dy);
+    if (len < 2) return '';
 
-  const x1 = (from.svgX + ux * (PLAYER_RADIUS + 1)).toFixed(1);
-  const y1 = (from.svgY + uy * (PLAYER_RADIUS + 1)).toFixed(1);
-  const x2 = (to.svgX   - ux * (PLAYER_RADIUS + 3)).toFixed(1);
-  const y2 = (to.svgY   - uy * (PLAYER_RADIUS + 3)).toFixed(1);
+    const ux = dx / len;
+    const uy = dy / len;
 
-  const styles = {
+    x1 = (from.svgX + ux * (PLAYER_RADIUS + 1)).toFixed(1);
+    y1 = (from.svgY + uy * (PLAYER_RADIUS + 1)).toFixed(1);
+    x2 = (to.svgX   - ux * (PLAYER_RADIUS + 3)).toFixed(1);
+    y2 = (to.svgY   - uy * (PLAYER_RADIUS + 3)).toFixed(1);
+  }
+
+    const styles = {
     run:      { stroke: '#4CAF50', dash: '',      marker: 'ah-run'      },
     kick:     { stroke: '#FFD700', dash: '9,5',   marker: 'ah-kick'     },
     handball: { stroke: '#FF9800', dash: '3,4',   marker: 'ah-handball' }
   };
 
-  const s = styles[arrow.type] || styles.run;
-  const dashAttr = s.dash ? `stroke-dasharray="${s.dash}"` : '';
+  const s = styles[arrow.type];
+  const stroke  = s ? s.stroke : (arrow.color || '#4CAF50');
+  const dash    = s ? s.dash   : (arrow.dash  || '');
+  const markerId = s ? s.marker : `ah-${arrow.type}`;
+  const dashAttr = dash ? `stroke-dasharray="${dash}"` : '';
 
   return `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}"
-    stroke="${s.stroke}" stroke-width="2" stroke-linecap="round"
-    ${dashAttr} marker-end="url(#${s.marker})"/>`;
+    stroke="${stroke}" stroke-width="2" stroke-linecap="round"
+    ${dashAttr} marker-end="url(#${markerId})"/>`;
 }
 
 // ─── Player rendering ─────────────────────────────────────────────
@@ -176,7 +196,7 @@ export function buildDiagramSVG(diagram) {
   const players = Object.values(playerMap).map(p => renderPlayer(p)).join('\n');
 
   return `<svg viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg">
-  <defs>${arrowDefs()}</defs>
+  <defs>${arrowDefs(diagram.customTypes || [])}</defs>
   ${bg}
   ${arrows}
   ${players}

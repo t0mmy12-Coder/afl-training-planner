@@ -213,12 +213,12 @@ html, body {
   background: var(--surface);
   border: 2px solid var(--border);
   border-radius: 50px;
-  padding: 0.6rem 1.4rem;
-  font-size: 1.05rem;
+  padding: 0.5rem 0.9rem;
+  font-size: 1rem;
   font-weight: 700;
   cursor: pointer;
   transition: all var(--transition);
-  min-width: 80px;
+  min-width: 56px;
   text-align: center;
   color: var(--text);
 }
@@ -362,12 +362,12 @@ html, body {
   font-size: 0.82rem;
   font-weight: 600;
   white-space: nowrap;
-  color: var(--text-muted);
+  color: #7EB3E8;
   border-bottom: 3px solid transparent;
   transition: all var(--transition);
   flex-shrink: 0;
 }
-.tab:hover { color: var(--text); }
+.tab:hover { color: #AECFF5; }
 .tab.active {
   color: var(--afl-gold);
   border-bottom-color: var(--afl-gold);
@@ -881,7 +881,383 @@ button { font-family: inherit; }
   }
   .plan-panel { width: 100%; }
   .category-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+  .drill-editor { flex-direction: column; }
+  .de-list-pane  { width: 100%; height: 160px; border-right: none; border-bottom: 1px solid var(--border); }
+  .de-form-pane  { width: 100%; border-left: none; border-top: 1px solid var(--border); }
+  .de-diagram-pane { min-height: 300px; }
 }
+
+/* ─── EDIT DRILLS BUTTON ──────────────────────────────────── */
+
+.btn-edit-drills {
+  background: rgba(255,255,255,0.1);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 0.4rem 0.9rem;
+  font-weight: 600;
+  font-size: 0.82rem;
+  cursor: pointer;
+  transition: all var(--transition);
+  white-space: nowrap;
+}
+.btn-edit-drills:hover { background: rgba(255,255,255,0.18); border-color: rgba(255,255,255,0.3); }
+
+/* ─── DRILL EDITOR SCREEN ─────────────────────────────────── */
+
+.drill-editor {
+  display: flex;
+  height: 100%;
+  overflow: hidden;
+}
+
+.de-list-pane {
+  width: 240px;
+  flex-shrink: 0;
+  border-right: 1px solid var(--border);
+  overflow-y: auto;
+  background: var(--bg);
+}
+
+.de-list-header {
+  position: sticky;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.6rem 1rem;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  z-index: 1;
+}
+
+.de-list-cat {
+  padding: 0.4rem 0.9rem 0.2rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--afl-gold);
+  opacity: 0.7;
+}
+
+.de-list-row {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.6rem 1rem;
+  border-bottom: 1px solid var(--border);
+  cursor: pointer;
+  transition: background var(--transition);
+}
+.de-list-row:hover { background: rgba(255,255,255,0.04); }
+.de-list-row.active { background: rgba(255,215,0,0.07); border-left: 3px solid var(--afl-gold); padding-left: calc(1rem - 3px); }
+
+.de-list-name {
+  flex: 1;
+  font-size: 0.83rem;
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.de-custom-badge {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  background: rgba(255,215,0,0.15);
+  color: var(--afl-gold);
+  border-radius: 4px;
+  padding: 0.1rem 0.35rem;
+  flex-shrink: 0;
+}
+
+/* ─── DIAGRAM PANE (middle) ────────────────────────────────── */
+
+.de-diagram-pane {
+  flex: 1;
+  overflow-y: auto;
+  background: #001233;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  padding: 1rem;
+  gap: 0;
+  min-width: 0;
+}
+
+/* ─── FORM PANE (right) ────────────────────────────────────── */
+
+.de-form-pane {
+  width: 280px;
+  flex-shrink: 0;
+  border-left: 1px solid var(--border);
+  overflow-y: auto;
+  background: var(--surface);
+  padding: 1rem;
+}
+
+.de-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: 0.75rem;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+/* ─── EDITOR FORM ──────────────────────────────────────────── */
+
+.de-form { display: flex; flex-direction: column; gap: 0.75rem; }
+
+.de-form-row {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.de-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  flex: 1;
+  min-width: 80px;
+}
+
+.de-form-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--afl-gold);
+}
+
+.de-input {
+  background: rgba(255,255,255,0.07);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text);
+  padding: 0.45rem 0.7rem;
+  font-size: 0.86rem;
+  font-family: inherit;
+  outline: none;
+  transition: border-color var(--transition);
+  width: 100%;
+}
+.de-input:focus { border-color: var(--afl-gold); }
+.de-input-lg { font-size: 1rem; font-weight: 600; }
+
+.de-textarea {
+  min-height: 260px;
+  resize: vertical;
+  line-height: 1.5;
+}
+
+.de-select {
+  background: var(--afl-navy);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 6px;
+  color: var(--text);
+  padding: 0.4rem 0.5rem;
+  font-size: 0.84rem;
+  font-family: inherit;
+  outline: none;
+  cursor: pointer;
+}
+.de-select:focus { border-color: var(--afl-gold); }
+.de-select option { background: var(--afl-navy); color: var(--text); }
+
+/* ─── DIAGRAM EDITOR COMPONENT ─────────────────────────────── */
+
+.de-wrap {
+  background: var(--surface);
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+}
+
+.de-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  padding: 0.6rem 0.75rem;
+  background: var(--afl-navy);
+  border-bottom: 1px solid var(--border);
+  align-items: center;
+}
+
+.de-tool-group {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  flex-wrap: wrap;
+}
+
+.de-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.de-tool-btn {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  color: var(--text);
+  padding: 0.3rem 0.65rem;
+  font-size: 0.76rem;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all var(--transition);
+  white-space: nowrap;
+}
+.de-tool-btn:hover { background: rgba(255,255,255,0.16); border-color: rgba(255,255,255,0.3); }
+.de-tool-btn.active { background: var(--afl-gold); color: var(--afl-navy); border-color: var(--afl-gold); }
+
+.de-canvas-wrap { background: var(--afl-grass); line-height: 0; flex-shrink: 0; }
+.de-svg { display: block; width: 100%; height: auto; touch-action: none; }
+
+/* ─── LEGEND EDITOR ────────────────────────────────────────── */
+
+.de-legend-editor {
+  padding: 0.75rem 1rem;
+  background: rgba(0,0,0,0.2);
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.de-legend-title {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--afl-gold);
+}
+
+.de-legend-std, .de-legend-custom {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.de-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.76rem;
+  color: var(--text-muted);
+}
+
+.de-swatch {
+  display: inline-block;
+  width: 22px;
+  height: 3px;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+.de-swatch-dash { height: 0; background: transparent; border-top: 2.5px dashed; }
+.de-swatch-dot  { height: 0; background: transparent; border-top: 2.5px dotted; }
+
+.de-legend-del {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: 0.7rem;
+  padding: 0 0.15rem;
+  line-height: 1;
+  transition: color var(--transition);
+}
+.de-legend-del:hover { color: var(--afl-red); }
+
+.de-legend-add {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  align-items: center;
+  padding-top: 0.3rem;
+  border-top: 1px solid var(--border);
+}
+
+.de-ct-form { background: rgba(0,0,0,0.2); border-radius: 6px; padding: 0.3rem 0.5rem; }
+.de-ct-form .de-input { width: 100px; padding: 0.3rem 0.5rem; font-size: 0.78rem; }
+
+.de-legend-add input[type="color"] {
+  width: 34px;
+  height: 30px;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 1px;
+  background: rgba(255,255,255,0.07);
+}
+
+/* ─── EDITOR ACTION BUTTONS ────────────────────────────────── */
+
+.de-actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  padding-top: 0.25rem;
+}
+
+.btn-save-drill {
+  background: var(--afl-red);
+  color: white;
+  border: none;
+  border-radius: 7px;
+  padding: 0.55rem 1.5rem;
+  font-weight: 700;
+  font-size: 0.88rem;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all var(--transition);
+}
+.btn-save-drill:hover { opacity: 0.88; }
+
+.btn-del-drill {
+  background: none;
+  border: 1px solid rgba(204,0,0,0.45);
+  color: rgba(204,0,0,0.85);
+  border-radius: 7px;
+  padding: 0.55rem 1.2rem;
+  font-weight: 600;
+  font-size: 0.88rem;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all var(--transition);
+}
+.btn-del-drill:hover { background: var(--afl-red); color: white; border-color: var(--afl-red); }
+
+.btn-cancel-drill {
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  border-radius: 7px;
+  padding: 0.55rem 1.2rem;
+  font-weight: 600;
+  font-size: 0.88rem;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all var(--transition);
+}
+.btn-cancel-drill:hover { color: var(--text); border-color: rgba(255,255,255,0.3); }
 
 /* ─── PRINT ───────────────────────────────────────────────── */
 

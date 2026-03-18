@@ -12,6 +12,10 @@ export function renderDrillDiagram(drill, onAddToPlan) {
   if (arrowTypes.has('run'))      legendItems.push(legendItem('run', '#4CAF50', 'Run'));
   if (arrowTypes.has('kick'))     legendItems.push(legendItem('kick', '#FFD700', 'Kick', '9,5'));
   if (arrowTypes.has('handball')) legendItems.push(legendItem('handball', '#FF9800', 'Handball', '3,4'));
+  // Custom types from diagram
+  (drill.diagram.customTypes || []).forEach(ct => {
+    if (arrowTypes.has(ct.id)) legendItems.push(legendItem(ct.id, ct.color, ct.label, ct.dash));
+  });
 
   el.innerHTML = `
     <div class="diagram-header">
@@ -19,7 +23,6 @@ export function renderDrillDiagram(drill, onAddToPlan) {
       <div class="diagram-meta">
         <span>⏱ ${drill.durationMinutes} min</span>
         <span>👥 ${playerRange(drill)}</span>
-        <span>📂 ${fieldTypeLabel(drill.diagram.fieldType)}</span>
       </div>
     </div>
 

@@ -164,6 +164,160 @@
     }
   },
   {
+    "id": "warmup_007",
+    "name": "Follow the Leader Run",
+    "category": "warm_up",
+    "minPlayers": 6,
+    "maxPlayers": 99,
+    "durationMinutes": 8,
+    "description": "Players jog in a line following a leader who changes pace, direction, and movement type such as side steps, backwards running, and short sprints. Rotate leader every minute.",
+    "diagram": {
+      "fieldType": "oval_half",
+      "players": [
+        { "id": "l1", "x": 0.50, "y": 0.20, "role": "leader", "label": "L" },
+        { "id": "p1", "x": 0.60, "y": 0.30, "role": "player", "label": "1" },
+        { "id": "p2", "x": 0.65, "y": 0.45, "role": "player", "label": "2" },
+        { "id": "p3", "x": 0.60, "y": 0.60, "role": "player", "label": "3" },
+        { "id": "p4", "x": 0.50, "y": 0.70, "role": "player", "label": "4" },
+        { "id": "p5", "x": 0.40, "y": 0.60, "role": "player", "label": "5" },
+        { "id": "p6", "x": 0.35, "y": 0.45, "role": "player", "label": "6" }
+      ],
+      "arrows": [
+        { "from": "l1", "to": "p1", "type": "run" },
+        { "from": "p1", "to": "p2", "type": "run" },
+        { "from": "p2", "to": "p3", "type": "run" },
+        { "from": "p3", "to": "p4", "type": "run" },
+        { "from": "p4", "to": "p5", "type": "run" },
+        { "from": "p5", "to": "p6", "type": "run" }
+      ],
+      "zones": []
+    }
+  },
+  {
+    "id": "warmup_008",
+    "name": "Handball Weave",
+    "category": "warm_up",
+    "minPlayers": 6,
+    "maxPlayers": 20,
+    "durationMinutes": 10,
+    "description": "Players run in a zig-zag pattern while handballing to the next runner. Focus on leading into space and clean disposal at speed.",
+    "diagram": {
+      "fieldType": "corridor",
+      "players": [
+        { "id": "p1", "x": 0.30, "y": 0.15, "role": "player", "label": "1" },
+        { "id": "p2", "x": 0.70, "y": 0.30, "role": "player", "label": "2" },
+        { "id": "p3", "x": 0.30, "y": 0.45, "role": "player", "label": "3" },
+        { "id": "p4", "x": 0.70, "y": 0.60, "role": "player", "label": "4" },
+        { "id": "p5", "x": 0.30, "y": 0.75, "role": "player", "label": "5" }
+      ],
+      "arrows": [
+        { "from": "p1", "to": "p2", "type": "handball" },
+        { "from": "p2", "to": "p3", "type": "handball" },
+        { "from": "p3", "to": "p4", "type": "handball" },
+        { "from": "p4", "to": "p5", "type": "handball" }
+      ],
+      "zones": []
+    }
+  },
+  {
+    "id": "warmup_009",
+    "name": "Ground Ball Pickups",
+    "category": "warm_up",
+    "minPlayers": 6,
+    "maxPlayers": 20,
+    "durationMinutes": 10,
+    "description": "Players move through a grid collecting rolling balls and handballing to a teammate. Focus on clean pickups at speed.",
+    "diagram": {
+      "fieldType": "box",
+      "players": [
+        { "id": "p1", "x": 0.20, "y": 0.20, "role": "player", "label": "1" },
+        { "id": "p2", "x": 0.80, "y": 0.20, "role": "player", "label": "2" },
+        { "id": "p3", "x": 0.20, "y": 0.80, "role": "player", "label": "3" },
+        { "id": "p4", "x": 0.80, "y": 0.80, "role": "player", "label": "4" },
+        { "id": "p5", "x": 0.50, "y": 0.50, "role": "leader", "label": "C" }
+      ],
+      "arrows": [
+        { "from": "p1", "to": "p5", "type": "run" },
+        { "from": "p2", "to": "p5", "type": "run" },
+        { "from": "p3", "to": "p5", "type": "run" },
+        { "from": "p4", "to": "p5", "type": "run" }
+      ],
+      "zones": []
+    }
+  },
+  {
+    "id": "warmup_010",
+    "name": "Kick and Follow",
+    "category": "warm_up",
+    "minPlayers": 6,
+    "maxPlayers": 20,
+    "durationMinutes": 10,
+    "description": "Players kick to a partner and then follow their kick to join the next line. Continuous flow drill.",
+    "diagram": {
+      "fieldType": "corridor",
+      "players": [
+        { "id": "p1", "x": 0.40, "y": 0.15, "role": "player", "label": "1" },
+        { "id": "p2", "x": 0.60, "y": 0.45, "role": "player", "label": "2" },
+        { "id": "p3", "x": 0.40, "y": 0.75, "role": "player", "label": "3" }
+      ],
+      "arrows": [
+        { "from": "p1", "to": "p2", "type": "kick" },
+        { "from": "p2", "to": "p3", "type": "kick" },
+        { "from": "p3", "to": "p1", "type": "run" }
+      ],
+      "zones": []
+    }
+  },
+  {
+    "id": "warmup_011",
+    "name": "Circle Keepings Off",
+    "category": "warm_up",
+    "minPlayers": 8,
+    "maxPlayers": 20,
+    "durationMinutes": 10,
+    "description": "Players form a circle and maintain possession with handballs while 1–2 defenders try to intercept.",
+    "diagram": {
+      "fieldType": "oval_half",
+      "players": [
+        { "id": "p1", "x": 0.50, "y": 0.20, "role": "player", "label": "1" },
+        { "id": "p2", "x": 0.75, "y": 0.35, "role": "player", "label": "2" },
+        { "id": "p3", "x": 0.75, "y": 0.65, "role": "player", "label": "3" },
+        { "id": "p4", "x": 0.50, "y": 0.80, "role": "player", "label": "4" },
+        { "id": "p5", "x": 0.25, "y": 0.65, "role": "player", "label": "5" },
+        { "id": "p6", "x": 0.25, "y": 0.35, "role": "player", "label": "6" },
+        { "id": "d1", "x": 0.50, "y": 0.50, "role": "defender", "label": "D" }
+      ],
+      "arrows": [
+        { "from": "p1", "to": "p2", "type": "handball" },
+        { "from": "p2", "to": "p3", "type": "handball" },
+        { "from": "p3", "to": "p4", "type": "handball" }
+      ],
+      "zones": []
+    }
+  },
+  {
+    "id": "warmup_012",
+    "name": "Sprint and Handball",
+    "category": "warm_up",
+    "minPlayers": 6,
+    "maxPlayers": 20,
+    "durationMinutes": 10,
+    "description": "Players sprint forward and handball to a teammate before continuing their run.",
+    "diagram": {
+      "fieldType": "corridor",
+      "players": [
+        { "id": "p1", "x": 0.50, "y": 0.85, "role": "player", "label": "1" },
+        { "id": "p2", "x": 0.50, "y": 0.55, "role": "player", "label": "2" },
+        { "id": "p3", "x": 0.50, "y": 0.25, "role": "player", "label": "3" }
+      ],
+      "arrows": [
+        { "from": "p1", "to": "p2", "type": "run" },
+        { "from": "p2", "to": "p3", "type": "handball" }
+      ],
+      "zones": []
+    }
+  },
+  {
     "id": "skills_001",
     "name": "Handball Relay",
     "category": "basic_skills",
@@ -649,6 +803,232 @@
         { "from": "ki",  "to": "o3",  "type": "kick" },
         { "from": "o2",  "to": "o1",  "type": "handball" },
         { "from": "pr1", "to": "o1",  "type": "run" }
+      ],
+      "zones": []
+    }
+  },
+   {
+    "id": "game_007",
+    "name": "4v3 Corridor Transition",
+    "category": "game_sense",
+    "minPlayers": 10,
+    "maxPlayers": 20,
+    "durationMinutes": 20,
+    "description": "Four attackers move the ball down a corridor against three defenders. Once the ball turns over, defenders counter-attack immediately.",
+    "diagram": {
+      "fieldType": "corridor",
+      "players": [
+        { "id": "a1", "x": 0.30, "y": 0.10, "role": "attacker", "label": "A" },
+        { "id": "a2", "x": 0.50, "y": 0.15, "role": "attacker", "label": "A" },
+        { "id": "a3", "x": 0.40, "y": 0.25, "role": "attacker", "label": "A" },
+        { "id": "a4", "x": 0.60, "y": 0.25, "role": "attacker", "label": "A" },
+        { "id": "d1", "x": 0.35, "y": 0.55, "role": "defender", "label": "D" },
+        { "id": "d2", "x": 0.55, "y": 0.55, "role": "defender", "label": "D" },
+        { "id": "d3", "x": 0.45, "y": 0.70, "role": "defender", "label": "D" }
+      ],
+      "arrows": [
+        { "from": "a1", "to": "a3", "type": "handball" },
+        { "from": "a3", "to": "a2", "type": "kick" },
+        { "from": "a2", "to": "d1", "type": "run" }
+      ],
+      "zones": []
+    }
+  },
+  {
+    "id": "game_008",
+    "name": "5v4 Forward Entry",
+    "category": "game_sense",
+    "minPlayers": 12,
+    "maxPlayers": 22,
+    "durationMinutes": 20,
+    "description": "Five attackers work the ball into a forward zone against four defenders. Focus on leading patterns and decision making inside 50.",
+    "diagram": {
+      "fieldType": "oval_half",
+      "players": [
+        { "id": "a1", "x": 0.40, "y": 0.75, "role": "attacker", "label": "A" },
+        { "id": "a2", "x": 0.60, "y": 0.75, "role": "attacker", "label": "A" },
+        { "id": "a3", "x": 0.30, "y": 0.50, "role": "attacker", "label": "A" },
+        { "id": "a4", "x": 0.70, "y": 0.50, "role": "attacker", "label": "A" },
+        { "id": "a5", "x": 0.50, "y": 0.35, "role": "attacker", "label": "A" },
+        { "id": "d1", "x": 0.40, "y": 0.45, "role": "defender", "label": "D" },
+        { "id": "d2", "x": 0.60, "y": 0.45, "role": "defender", "label": "D" },
+        { "id": "d3", "x": 0.50, "y": 0.25, "role": "defender", "label": "D" },
+        { "id": "d4", "x": 0.50, "y": 0.60, "role": "defender", "label": "D" }
+      ],
+      "arrows": [
+        { "from": "a1", "to": "a5", "type": "kick" },
+        { "from": "a5", "to": "a3", "type": "handball" }
+      ],
+      "zones": [
+        { "x": 0.20, "y": 0.10, "w": 0.60, "h": 0.30, "label": "Forward 50" }
+      ]
+    }
+  },
+  {
+    "id": "game_009",
+    "name": "3v3 +1 Link Player",
+    "category": "game_sense",
+    "minPlayers": 8,
+    "maxPlayers": 16,
+    "durationMinutes": 18,
+    "description": "Two teams of three compete with a neutral link player who always supports the team in possession.",
+    "diagram": {
+      "fieldType": "box",
+      "players": [
+        { "id": "a1", "x": 0.25, "y": 0.30, "role": "attacker", "label": "A" },
+        { "id": "a2", "x": 0.25, "y": 0.70, "role": "attacker", "label": "A" },
+        { "id": "a3", "x": 0.45, "y": 0.50, "role": "attacker", "label": "A" },
+        { "id": "d1", "x": 0.75, "y": 0.30, "role": "defender", "label": "D" },
+        { "id": "d2", "x": 0.75, "y": 0.70, "role": "defender", "label": "D" },
+        { "id": "d3", "x": 0.55, "y": 0.50, "role": "defender", "label": "D" },
+        { "id": "n1", "x": 0.50, "y": 0.50, "role": "neutral", "label": "N" }
+      ],
+      "arrows": [
+        { "from": "a1", "to": "n1", "type": "handball" },
+        { "from": "n1", "to": "a2", "type": "handball" }
+      ],
+      "zones": []
+    }
+  },
+  {
+    "id": "game_010",
+    "name": "Boundary Line Pressure Game",
+    "category": "game_sense",
+    "minPlayers": 10,
+    "maxPlayers": 20,
+    "durationMinutes": 20,
+    "description": "Play occurs along a narrow boundary channel. Players must keep the ball in play while under pressure.",
+    "diagram": {
+      "fieldType": "corridor",
+      "players": [
+        { "id": "a1", "x": 0.30, "y": 0.15, "role": "attacker", "label": "A" },
+        { "id": "a2", "x": 0.50, "y": 0.25, "role": "attacker", "label": "A" },
+        { "id": "a3", "x": 0.40, "y": 0.35, "role": "attacker", "label": "A" },
+        { "id": "d1", "x": 0.60, "y": 0.55, "role": "defender", "label": "D" },
+        { "id": "d2", "x": 0.40, "y": 0.60, "role": "defender", "label": "D" }
+      ],
+      "arrows": [
+        { "from": "a1", "to": "a2", "type": "handball" },
+        { "from": "a2", "to": "a3", "type": "kick" }
+      ],
+      "zones": []
+    }
+  },
+  {
+    "id": "game_011",
+    "name": "Overlap Run Game",
+    "category": "game_sense",
+    "minPlayers": 9,
+    "maxPlayers": 18,
+    "durationMinutes": 20,
+    "description": "Teams must create overlap handball receives to progress the ball forward.",
+    "diagram": {
+      "fieldType": "corridor",
+      "players": [
+        { "id": "a1", "x": 0.40, "y": 0.10, "role": "attacker", "label": "A" },
+        { "id": "a2", "x": 0.60, "y": 0.20, "role": "attacker", "label": "A" },
+        { "id": "a3", "x": 0.45, "y": 0.30, "role": "attacker", "label": "A" },
+        { "id": "d1", "x": 0.50, "y": 0.55, "role": "defender", "label": "D" },
+        { "id": "d2", "x": 0.65, "y": 0.65, "role": "defender", "label": "D" }
+      ],
+      "arrows": [
+        { "from": "a1", "to": "a2", "type": "handball" },
+        { "from": "a2", "to": "a3", "type": "run" }
+      ],
+      "zones": []
+    }
+  },
+  {
+    "id": "game_012",
+    "name": "Defensive Zone Lock",
+    "category": "game_sense",
+    "minPlayers": 10,
+    "maxPlayers": 20,
+    "durationMinutes": 20,
+    "description": "Defenders work to lock the ball inside a zone and prevent clean exits.",
+    "diagram": {
+      "fieldType": "oval_half",
+      "players": [
+        { "id": "a1", "x": 0.40, "y": 0.70, "role": "attacker", "label": "A" },
+        { "id": "a2", "x": 0.60, "y": 0.70, "role": "attacker", "label": "A" },
+        { "id": "d1", "x": 0.40, "y": 0.50, "role": "defender", "label": "D" },
+        { "id": "d2", "x": 0.60, "y": 0.50, "role": "defender", "label": "D" },
+        { "id": "d3", "x": 0.50, "y": 0.40, "role": "defender", "label": "D" }
+      ],
+      "arrows": [
+        { "from": "a1", "to": "d1", "type": "kick" }
+      ],
+      "zones": [
+        { "x": 0.30, "y": 0.40, "w": 0.40, "h": 0.30, "label": "Defensive Zone" }
+      ]
+    }
+  },
+  {
+    "id": "game_013",
+    "name": "Switch Play Game",
+    "category": "game_sense",
+    "minPlayers": 10,
+    "maxPlayers": 20,
+    "durationMinutes": 20,
+    "description": "Teams must switch the ball from one side of the field to the other before scoring.",
+    "diagram": {
+      "fieldType": "oval_half",
+      "players": [
+        { "id": "a1", "x": 0.30, "y": 0.70, "role": "attacker", "label": "A" },
+        { "id": "a2", "x": 0.70, "y": 0.70, "role": "attacker", "label": "A" },
+        { "id": "a3", "x": 0.50, "y": 0.50, "role": "attacker", "label": "A" },
+        { "id": "d1", "x": 0.40, "y": 0.60, "role": "defender", "label": "D" },
+        { "id": "d2", "x": 0.60, "y": 0.60, "role": "defender", "label": "D" }
+      ],
+      "arrows": [
+        { "from": "a1", "to": "a2", "type": "kick" },
+        { "from": "a2", "to": "a3", "type": "handball" }
+      ],
+      "zones": []
+    }
+  },
+  {
+    "id": "game_014",
+    "name": "Chaos Ball Game",
+    "category": "game_sense",
+    "minPlayers": 10,
+    "maxPlayers": 20,
+    "durationMinutes": 18,
+    "description": "Loose ball situations with high pressure. Players must react quickly and make fast decisions.",
+    "diagram": {
+      "fieldType": "box",
+      "players": [
+        { "id": "a1", "x": 0.30, "y": 0.40, "role": "attacker", "label": "A" },
+        { "id": "a2", "x": 0.70, "y": 0.40, "role": "attacker", "label": "A" },
+        { "id": "d1", "x": 0.40, "y": 0.60, "role": "defender", "label": "D" },
+        { "id": "d2", "x": 0.60, "y": 0.60, "role": "defender", "label": "D" }
+      ],
+      "arrows": [
+        { "from": "a1", "to": "d1", "type": "run" }
+      ],
+      "zones": []
+    }
+  },
+  {
+    "id": "game_015",
+    "name": "End-to-End Transition Game",
+    "category": "game_sense",
+    "minPlayers": 12,
+    "maxPlayers": 24,
+    "durationMinutes": 20,
+    "description": "Teams transition the ball from one end to the other. On turnover, immediate counter attack is required.",
+    "diagram": {
+      "fieldType": "corridor",
+      "players": [
+        { "id": "a1", "x": 0.45, "y": 0.10, "role": "attacker", "label": "A" },
+        { "id": "a2", "x": 0.55, "y": 0.20, "role": "attacker", "label": "A" },
+        { "id": "a3", "x": 0.45, "y": 0.30, "role": "attacker", "label": "A" },
+        { "id": "d1", "x": 0.50, "y": 0.55, "role": "defender", "label": "D" },
+        { "id": "d2", "x": 0.60, "y": 0.65, "role": "defender", "label": "D" }
+      ],
+      "arrows": [
+        { "from": "a1", "to": "a2", "type": "kick" },
+        { "from": "a2", "to": "a3", "type": "run" }
       ],
       "zones": []
     }

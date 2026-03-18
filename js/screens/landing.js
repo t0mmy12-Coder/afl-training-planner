@@ -1,6 +1,6 @@
 import { getState, setState } from '../store.js';
 
-const PLAYER_COUNT_OPTIONS = [10, 15, 18, 20, 22, '24+'];
+const PLAYER_COUNT_OPTIONS = [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
 
 export function mount(root, _params, navigate) {
   const el = document.createElement('div');

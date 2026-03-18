@@ -37,6 +37,7 @@ function render(el) {
       </nav>
 
       <div class="nav-actions">
+        <button class="btn-edit-drills" id="btn-edit-drills">✏️ Edit Drills</button>
         <button class="btn-plan" id="btn-plan-toggle" aria-label="Toggle training plan">
           📋 Training Plan
           ${drillCount > 0 ? `<span class="badge">${drillCount}</span>` : ''}
@@ -48,6 +49,11 @@ function render(el) {
   el.querySelector('#nav-home').addEventListener('click', () => {
     setState({ activeScreen: 'landing', category: null, selectedDrillId: null });
     _navigate('landing');
+  });
+
+  el.querySelector('#btn-edit-drills').addEventListener('click', () => {
+    setState({ activeScreen: 'drillEditor', selectedDrillId: null });
+    _navigate('drillEditor');
   });
 
   el.querySelector('#btn-plan-toggle').addEventListener('click', () => {
@@ -92,6 +98,14 @@ function buildCrumbs(activeScreen, playerCount, catName) {
       `<span class="crumb" data-crumb="categories">Categories</span>`,
       sep,
       `<span class="crumb active">${catName ?? 'Drills'}</span>`
+    ].join('');
+  }
+
+  if (activeScreen === 'drillEditor') {
+    return [
+      `<span class="crumb" data-crumb="landing">Home</span>`,
+      sep,
+      `<span class="crumb active">Edit Drills</span>`
     ].join('');
   }
 

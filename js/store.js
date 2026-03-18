@@ -3,8 +3,9 @@
 const _state = {
   playerCount: null,      // number | null
   category: null,         // category id string | null
-  activeScreen: 'landing',// 'landing' | 'categories' | 'drills'
-  drills: [],             // all drills loaded from drills.json
+  activeScreen: 'landing',// 'landing' | 'categories' | 'drills' | 'drillEditor'
+  drills: [],             // merged drills (base + custom, minus deleted)
+  baseDrills: [],         // raw drills from drills.json (never mutated)
   categories: [],         // all categories loaded from categories.json
   panelOpen: false,       // training plan panel open/closed
   activePlanId: null,     // id of the currently active plan

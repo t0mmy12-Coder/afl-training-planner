@@ -1,11 +1,13 @@
 import { setState } from './store.js';
 import { registerRoutes, navigate } from './router.js';
 import { loadPlans } from './utils/planStorage.js';
+import { loadCustomDrills, mergeWithBase } from './utils/drillStorage.js';
 import { mountNavBar } from './components/navBar.js';
 import { mountPlanPanel } from './components/planPanel.js';
-import * as landing    from './screens/landing.js';
-import * as categories from './screens/categories.js';
+import * as landing      from './screens/landing.js';
+import * as categories   from './screens/categories.js';
 import * as drillBrowser from './screens/drillBrowser.js';
+import * as drillEditor  from './screens/drillEditor.js';
 
 async function init() {
   // Load data
@@ -38,12 +40,14 @@ async function init() {
     return;
   }
 
-  // Load persisted plans
-  const plans = loadPlans();
+  // Load persisted plans & custom drills
+  const plans       = loadPlans();
   const activePlanId = plans.length > 0 ? plans[plans.length - 1].id : null;
+  const customDrills = loadCustomDrills();
+  const mergedDrills = mergeWithBase(drills, customDrills);
 
   // Seed store
-  setState({ drills, categories: cats, plans, activePlanId });
+  setState({ drills: mergedDrills, baseDrills: drills, categories: cats, plans, activePlanId });
 
   // Wire up router (wrap each screen's mount to inject navigate)
   const wrapScreen = (screen) => ({
@@ -51,9 +55,10 @@ async function init() {
   });
 
   registerRoutes({
-    landing:    wrapScreen(landing),
-    categories: wrapScreen(categories),
-    drills:     wrapScreen(drillBrowser)
+    landing:     wrapScreen(landing),
+    categories:  wrapScreen(categories),
+    drills:      wrapScreen(drillBrowser),
+    drillEditor: wrapScreen(drillEditor)
   });
 
   // Mount persistent UI elements
